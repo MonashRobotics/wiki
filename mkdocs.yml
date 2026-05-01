@@ -66,9 +66,10 @@ nav:
   - HPC:
     - Overview: hpc/index.md
     - M3 (Monash): hpc/m3.md
-    - S Drive: hpc/s-drive.md
     - Pawsey Setonix: hpc/pawsey.md
     - NCI Gadi: hpc/nci.md
+  - Storage:
+    - S Drive: storage/s-drive.md
 
 markdown_extensions:
   - admonition

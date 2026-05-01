@@ -66,7 +66,7 @@ Documentation for HPC access, storage, onboarding, and lab workflows.
 
     Persistent shared storage for archiving training runs across the lab.
 
-    [:octicons-arrow-right-24: S Drive Guide](hpc/s-drive.md)
+    [:octicons-arrow-right-24: S Drive Guide](storage/s-drive.md)
 
 -   :material-lightning-bolt:{ .lg .middle } **Pawsey Setonix**
 

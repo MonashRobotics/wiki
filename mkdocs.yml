@@ -28,6 +28,7 @@ theme:
 
 nav:
   - Home: index.md
+  - Contributing: contributing.md
   - Onboarding:
     - Getting Started: onboarding/index.md
     - New PhD Student Checklist: onboarding/phd.md

@@ -22,6 +22,8 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+  logo: assets/logo.png
+  favicon: assets/logo.png
   font:
     text: Inter
     code: JetBrains Mono
@@ -49,8 +51,10 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/MonashRobotics
+      name: MonashRobotics on GitHub
     - icon: fontawesome/solid/globe
       link: https://www.monash.edu/engineering/robotics
+      name: Monash Robotics
 
 nav:
   - Home: index.md

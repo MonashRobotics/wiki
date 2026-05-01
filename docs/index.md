@@ -14,37 +14,65 @@ Documentation for HPC access, storage, onboarding, and lab workflows.
 
 </div>
 
+---
+
+## :material-door-open: New to the lab?
+
 <div class="grid cards" markdown>
 
 -   :material-rocket-launch:{ .lg .middle } **Getting Started**
 
     ---
 
-    New to the lab? Start here — accounts, access, meetings, and tools.
+    Accounts, Slack, meetings, tools — start here.
 
     [:octicons-arrow-right-24: Onboarding](onboarding/index.md)
 
--   :material-server:{ .lg .middle } **M3 (Monash HPC)**
+-   :material-clipboard-list:{ .lg .middle } **New PhD Checklist**
 
     ---
 
-    Job submission, storage quota, Isaac Sim setup on Monash's M3 cluster.
+    Step-by-step task list for new HRI Group PhD students.
+
+    [:octicons-arrow-right-24: PhD Checklist](onboarding/phd.md)
+
+-   :material-server-network:{ .lg .middle } **Get HPC Access**
+
+    ---
+
+    Which system to use and how to request access.
+
+    [:octicons-arrow-right-24: HPC Access](onboarding/hpc-access.md)
+
+</div>
+
+---
+
+## :material-server: Compute & Storage
+
+<div class="grid cards" markdown>
+
+-   :material-chip:{ .lg .middle } **M3 (Monash HPC)**
+
+    ---
+
+    NVIDIA A40/A100/H100. Isaac Sim, CUDA workloads, SLURM jobs.
 
     [:octicons-arrow-right-24: M3 Guide](hpc/m3.md)
 
--   :material-hard-disk:{ .lg .middle } **S Drive (Shared Storage)**
+-   :material-hard-disk:{ .lg .middle } **S Drive**
 
     ---
 
-    Archive training runs and share data across the lab via Monash S Drive.
+    Persistent shared storage for archiving training runs across the lab.
 
     [:octicons-arrow-right-24: S Drive Guide](hpc/s-drive.md)
 
--   :material-chip:{ .lg .middle } **Pawsey Setonix**
+-   :material-lightning-bolt:{ .lg .middle } **Pawsey Setonix**
 
     ---
 
-    National HPC with AMD MI250X GPUs. PyTorch, MuJoCo, and RL workloads.
+    AMD MI250X GPUs (ROCm). PyTorch, MuJoCo, large-scale RL training.
 
     [:octicons-arrow-right-24: Pawsey Guide](hpc/pawsey.md)
 
@@ -52,16 +80,16 @@ Documentation for HPC access, storage, onboarding, and lab workflows.
 
     ---
 
-    National HPC with NVIDIA H200/A100 GPUs. CUDA, Isaac Lab, JupyterLab via ARE.
+    NVIDIA H200/A100. CUDA, Isaac Lab, JupyterLab via ARE browser interface.
 
     [:octicons-arrow-right-24: NCI Guide](hpc/nci.md)
 
--   :material-pencil:{ .lg .middle } **Contributing**
-
-    ---
-
-    How to update this wiki — GitHub edits, local setup, and AI-assisted workflow.
-
-    [:octicons-arrow-right-24: Contributing](contributing.md)
-
 </div>
+
+---
+
+## :material-pencil: Contributing
+
+Help keep this wiki up to date — edits welcome from anyone in the lab.
+
+[:octicons-arrow-right-24: How to contribute](contributing.md)

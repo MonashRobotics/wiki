@@ -60,7 +60,7 @@ Documentation for HPC access, storage, onboarding, and lab workflows.
 
     [:octicons-arrow-right-24: M3 Guide](hpc/m3.md)
 
--   :material-hard-disk:{ .lg .middle } **S Drive**
+-   :material-harddisk:{ .lg .middle } **S Drive**
 
     ---
 

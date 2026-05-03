@@ -16,7 +16,7 @@ The lab S Drive is persistent shared storage hosted by Monash eSolutions. Unlike
 
 ## Getting Access
 
-Email Lingheng (`lingheng.meng1@monash.edu`) with your Monash authcate ID. He will add you as a Group Member. Allow up to 3 hours for permissions to propagate.
+Email Lingheng (`lingheng.meng1@monash.edu`) with your Monash authcate ID or Monash email address. He will add you as a Group Member. Allow up to 3 hours for permissions to propagate.
 
 ---
 
@@ -30,13 +30,37 @@ S:\ENG-ECSE\Robotics-M3\
     stack_alice\          ← Alice creates this herself
       checkpoints\
       logs\
+    stack_bob\
+  PhD_2023_dave\
+    stack_dave\
   shared_assets\          ← shared lab assets (Isaac Sim .sif, models)
 ```
 
-Each person is responsible for creating their own `stack_{name}/` folder. Do not write into someone else's stack.
+**Project folder naming** (same as M3):
+
+| Role | Format | Example |
+|---|---|---|
+| FYP student | `FYP{YYYY}S{1\|2}_{ProjectID}` | `FYP2026S1_3487` |
+| PhD student | `PhD_{YYYY}_{firstname}` | `PhD_2023_dave` |
+| Postdoc | `Postdoc_{YYYY}_{firstname}` | `Postdoc_2026_somayeh` |
+
+!!! note
+    **Supervisors create the project folder** — the same rule as M3. Students create only their `stack_{name}/` inside it. This ensures consistent structure and makes it possible to manage the drive as people come and go.
+
+Each person is responsible for creating their own `stack_{name}/` folder inside the project folder. Do not write into someone else's stack.
 
 !!! note
     There is no per-folder access control — every Group Member can read and write anywhere in the share. This is trust-based, the same as M3 project storage.
+
+---
+
+## Storage Policy
+
+The S Drive is shared lab storage. To keep it manageable:
+
+1. **Follow the folder convention.** All data must live under `{project_folder}/stack_{name}/`. Non-standard folders and loose files at the root will be reorganized by the admin without notice.
+2. **Don't leave orphaned data.** When you finish a project, update the `STATUS` file in your project folder (same values as M3: `ACTIVE`, `DONE-{YYYY-MM}`, `ARCHIVE`, `OK-TO-DELETE`).
+3. **Shared assets go in `shared_assets/`.** Large files shared across the lab (Isaac Sim `.sif`, base models) belong in `shared_assets/` — not duplicated in each person's stack.
 
 ---
 

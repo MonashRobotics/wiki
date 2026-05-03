@@ -32,7 +32,7 @@ You land on a login node — use it for editing scripts, submitting jobs, and ch
 |------|---------|-------|-------|---------|
 | `/home/{username}` | `$HOME` | 1 GiB | No | Shell config, dotfiles only |
 | `/software/projects/pawsey1339/{username}` | `$MYSOFTWARE` | 256 GiB shared | No | Conda envs, installs, SLURM scripts |
-| `/scratch/pawsey1339/{username}` | `$MYSCRATCH` | 1 PiB shared | **21 days** | Job input/output, working data |
+| `/scratch/pawsey1339/{username}` | `$MYSCRATCH` | 1 PiB shared | **21 days (last access)** | Job input/output, working data |
 | `/acacia` (project) | — | 512 GB shared | No | Long-term archival, results |
 | `/acacia` (personal) | — | 100 GB | No | Personal long-term storage |
 
@@ -42,7 +42,14 @@ echo $MYSOFTWARE    # your software/install dir
 ```
 
 !!! warning
-    `/scratch` is purged **21 days after last modification**. Do not use `touch` to avoid purge — move important outputs to `/acacia` promptly.
+    `/scratch` is purged **21 days after last access** (not last modification — changed from 1 month since June 2024). Do not use `touch` to reset the timer — Pawsey explicitly prohibits this. Move important outputs to `/acacia` promptly.
+
+!!! tip
+    Use `munlink` instead of `rm` to delete scratch files — it reduces filesystem scan load for other users:
+    ```bash
+    munlink myfile.dat
+    munlink -r mydirectory/
+    ```
 
 !!! tip
     `/software` quota is **shared across the whole project**. Keep conda environments lean and remove unused ones.

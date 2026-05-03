@@ -59,7 +59,7 @@ ssh {your_nci_id}@gadi.nci.org.au
 | Path | Quota | Purge | Use for |
 |---|---|---|---|
 | `/home/{username}` | 10 GiB | No | Config files, scripts |
-| `/scratch/pg06/{username}` | 1 TiB (project) | **100 days without access** | Active job data |
+| `/scratch/pg06/` | 1 TiB (project) | **100 days without access** | Active job data |
 | `massdata/pg06` | — | No | Long-term archival |
 
 ```bash
@@ -75,6 +75,39 @@ quota -s
 
 !!! warning
     `/scratch` is purged after **100 days without access**. Move important results to `massdata/pg06` before they expire. Check expiry with `nci-file-expiry`.
+
+---
+
+## Folder Structure
+
+All files live under a two-level structure: **project folder → stack folder** — the same convention as M3 and S Drive.
+
+```
+/scratch/pg06/
+├── FYP2026S1_3487/          ← FYP project folder (created by Lingheng)
+│   ├── stack_alice/
+│   └── stack_bob/
+├── PhD_2023_dave/
+│   └── stack_dave/
+└── Postdoc_2026_somayeh/
+    └── stack_somayeh/
+```
+
+**Project folder naming:**
+
+| Role | Format | Example |
+|---|---|---|
+| FYP student | `FYP{YYYY}S{1\|2}_{ProjectID}` | `FYP2026S1_3487` |
+| PhD student | `PhD_{YYYY}_{firstname}` | `PhD_2023_dave` |
+| Postdoc | `Postdoc_{YYYY}_{firstname}` | `Postdoc_2026_somayeh` |
+
+!!! note
+    **Project folders are created by Lingheng** — do not create them yourself. Contact Lingheng to have your project folder set up before you start. Your first action is to create your `stack_{name}/` folder inside it:
+    ```bash
+    mkdir -p /scratch/pg06/{your_project_folder}/stack_{your_name}/
+    ```
+
+The same convention will apply to `/g/data/pg06/` once provisioned.
 
 ---
 

@@ -66,6 +66,7 @@ nav:
   - HPC:
     - Overview: hpc/index.md
     - M3 (Monash): hpc/m3.md
+    - M3 Admin Guide: hpc/m3-admin.md
     - Pawsey Setonix: hpc/pawsey.md
     - NCI Gadi: hpc/nci.md
   - Storage:

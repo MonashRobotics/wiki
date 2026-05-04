@@ -32,6 +32,31 @@
 
 ---
 
+## Members
+
+**Project:** `pg06` | 16 members | *Last updated: 2026-05-01*
+
+| Name | Username | Role |
+|---|---|---|
+| **Dana Kulić** | `dk4618` | Lead CI (PI) |
+| **Lingheng Meng** | `lm3024` | Delegated Lead CI — project manager |
+| Shayegan Abdollahbeigi | `sa5743` | Student |
+| Adedayo Akinade | `aa6330` | PhD Student |
+| Maxwell Fergie | `mf3552` | Undergraduate Student |
+| Michael FitzGerald | `mf7023` | Student |
+| Lirui Guo | `lg4387` | PhD Student |
+| Somayeh Hussaini | `sh7589` | Visiting Post-doc |
+| Kavi Katuwandeniya | `kk9539` | Research Scientist |
+| Phan Tuan Kiet Le | `pl0320` | PhD Student |
+| Jack Moses | `jm4855` | Student |
+| Aron Thomas | `at7404` | Student |
+| Jack Thornborrow | `jt6695` | FYP Student |
+| Tianyi Xiao | `tx9325` | Undergraduate Student |
+| Mohammad Zawari | `mz4629` | Research Student |
+| Juyan Zhang | `jz5678` | PhD Student |
+
+---
+
 ## Getting Access
 
 1. Register at [my.nci.org.au](https://my.nci.org.au)

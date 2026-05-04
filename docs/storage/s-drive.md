@@ -14,6 +14,48 @@ The lab S Drive is persistent shared storage hosted by Monash eSolutions. Unlike
 
 ---
 
+## Members
+
+**Access group:** Robotics-M3 | 33 members | *Last updated: 2026-05-03*
+
+| Name | Role |
+|---|---|
+| **Dana Kulić** | PI |
+| **Lingheng Meng** | Admin — drive manager |
+| Kavi Katuwandeniya | Research Scientist |
+| Somayeh Hussaini | Visiting Post-doc |
+| Rhys Newbury | Post-doc |
+| Shiyu Xu | Post-doc/PhD |
+| Lirui Guo | PhD Student |
+| Phan Le | PhD Student |
+| Malak Sayour | Research Student |
+| Mohammad Zawari | Research Student |
+| Alana Hayes Chen | Member |
+| Aron Thomas | FYP Student |
+| Ben McShanag | FYP Student |
+| Blake Matheson | FYP Student |
+| Duleesha Gunaratne | FYP Student |
+| Isabella Moffat | FYP Student |
+| Jack Bastasin | FYP Student |
+| Jack Thornborrow | FYP Student |
+| Jacinta Yao | FYP Student |
+| Jeremia Yovinus | FYP Student |
+| Jesse Kipchumba | FYP Student |
+| Jordan Rozario | FYP Student |
+| Lucas Cooper | FYP Student |
+| Maxwell Fergie | FYP Student |
+| Michael Fitzgerald | FYP Student |
+| Omar Salem | FYP Student |
+| Raphael Schwalb | FYP Student |
+| Suhaas Kataria | FYP Student |
+| Taine Fryer | FYP Student |
+| Tavishi Saxena | FYP Student |
+| Tianyi Xiao | FYP Student |
+| Vedansh Malhan | FYP Student |
+| William Ngo | FYP Student |
+
+---
+
 ## Getting Access
 
 Email Lingheng (`lingheng.meng1@monash.edu`) with your Monash authcate ID or Monash email address. He will add you as a Group Member. Allow up to 3 hours for permissions to propagate.

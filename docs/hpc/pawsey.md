@@ -10,6 +10,26 @@
 
 ---
 
+## Members
+
+**Project:** `pawsey1339` | 11 members | *Last updated: 2026-05-01*
+
+| Name | Username | Role |
+|---|---|---|
+| **Dana Kulić** | `dkulic` | PI |
+| **Lingheng Meng** | `lmeng` | Admin — project manager |
+| Somayeh Hussaini | `somayehh` | Admin |
+| Kavi Katuwandeniya | `kkatu` | Admin |
+| Jesse Kipchumba | `jkipchumba` | Member |
+| Jack Moses | `jmoses` | Member |
+| Vedansh Malhan | `vmalhan` | Member |
+| William Ngo | `wngo` | Member |
+| Jordan Rozario | `jrozario` | Member |
+| Suhaas Kataria | `skataria` | Member |
+| Juyan Zhang | `jzhang7` | Member |
+
+---
+
 ## Getting Access
 
 Contact Lingheng (`lingheng.meng1@monash.edu`) to be invited. You'll receive an email from Pawsey — click the link to create your account and set a password.

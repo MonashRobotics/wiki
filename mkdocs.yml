@@ -71,6 +71,7 @@ nav:
     - NCI Gadi: hpc/nci.md
   - Storage:
     - S Drive: storage/s-drive.md
+  - Presentations: presentations.md
 
 markdown_extensions:
   - admonition

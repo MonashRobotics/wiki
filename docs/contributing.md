@@ -79,6 +79,29 @@ Claude Code can read the existing wiki files for context, draft new content, and
 
 ---
 
+## Sharing Presentations
+
+Lab presentations are archived in two GitHub repos depending on visibility:
+
+| Type | Meeting | Repo |
+|---|---|---|
+| Skill-sharing (tutorials, tools, workflows) | Monash Robotics Weekly Meeting | [`MonashRobotics/presentations`](https://github.com/MonashRobotics/presentations) (public) |
+| Paper reading | Robotics Reading Group | [`MonashRobotics/presentations`](https://github.com/MonashRobotics/presentations) (public) |
+| Research updates (unpublished work) | Monash Robotics Weekly Meeting | [`MonashRobotics/presentations-internal`](https://github.com/MonashRobotics/presentations-internal) (private, org members only) |
+
+**To add your slides:**
+
+1. Export as PDF
+2. Name it `YYYY-MM-DD_Topic_Author.pdf`
+3. Push to the appropriate folder (`skill-sharing/`, `paper-reading/`, or `research/`) in the correct repo
+4. Add an entry to [Presentations](presentations.md) with a one-line description
+
+**To attend the meetings and access internal slides:**
+
+Contact Dana Kulić (`dana.kulic@monash.edu`) to request a calendar invite for the Monash Robotics Weekly Meeting (Thursdays 10–11am) or the Robotics Reading Group (Thursdays 1–2pm).
+
+---
+
 ## Structure
 
 ```

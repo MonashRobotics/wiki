@@ -87,6 +87,15 @@ ssh {your_nci_id}@gadi.nci.org.au
 | `/scratch/pg06/` | 1 TiB (project) | **100 days without access** | Active job data |
 | `massdata/pg06` | — | No | Long-term archival |
 
+!!! note
+    `/g/data/pg06` is **not yet provisioned** for our project — only `/scratch/pg06/` is available. This will be requested in due course.
+
+Create a symlink to your scratch directory for convenience:
+
+```bash
+ln -s /scratch/pg06/$USER ~/scratch
+```
+
 ```bash
 # Check quota and SU balance
 nci_account

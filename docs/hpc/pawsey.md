@@ -44,6 +44,14 @@ ssh {your_pawsey_id}@setonix.pawsey.org.au
 
 You land on a login node — use it for editing scripts, submitting jobs, and checking status. Do not run heavy computation on login nodes.
 
+**Your home directory shows hidden files by default** — run `ls -a` to see them all.
+
+Your scratch directory (`$MYSCRATCH`) is not automatically linked in your home. Create a symlink for convenience:
+
+```bash
+ln -s $MYSCRATCH ~/scratch
+```
+
 ---
 
 ## Storage

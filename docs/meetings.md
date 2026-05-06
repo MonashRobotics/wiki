@@ -34,7 +34,7 @@ Slides from skill-sharing sessions are archived publicly. Research slides are ke
 | **Where** | 18 Alliance Ln, Clayton — G-G15-Lounge (MechEng) + Zoom |
 | **Organiser** | Dana Kulić |
 | **Audience** | Monash Robotics + CSIRO HRI members |
-| **Sign-up** | Signup sheet shared via calendar invite |
+| **Sign-up** | [Reading Group Signup Sheet](https://docs.google.com/spreadsheets/d/13IOgcobvI2vcGZmwijHcbElwz9rEJNJl5aZJJam5Cr4/edit?gid=1198744385#gid=1198744385) |
 
 Each week one person presents a paper — typically 30 min presentation followed by discussion. Anyone can sign up to present.
 

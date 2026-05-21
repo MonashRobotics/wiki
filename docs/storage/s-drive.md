@@ -63,13 +63,13 @@ The lab S Drive is persistent shared storage hosted by Monash eSolutions. Unlike
 
 Email Lingheng (`lingheng.meng1@monash.edu`) with your Monash authcate ID or Monash email address. He will add you as a Group Member. Allow up to 3 hours for permissions to propagate.
 
-!!! tip "Finding your Monash authcate ID"
-    The authcate ID is what you use to log into S Drive, GroupAdmin, and MoVE. It is **not necessarily the same as your M3 username**.
+!!! tip "Finding your Monash authcate ID (needed when mounting the drive)"
+    The authcate ID is the short alphanumeric username used for Monash Windows/VPN/network login — it is **not** the same as your M3 username, and for staff it is **not** the numeric employee ID shown in my.monash.edu (that is an HR identifier).
 
-    - **Students:** your authcate ID is the prefix before `@student.monash.edu` in your Monash email — e.g. `jmos0011@student.monash.edu` → authcate ID is `jmos0011`.
-    - **Staff/postdoc:** your email uses a display name format (e.g. `Lingheng.Meng1@monash.edu`) which is different from your authcate ID. Find it by logging into [my.monash.edu](https://my.monash.edu) → your profile.
+    - **Students:** your authcate ID is the prefix before `@student.monash.edu` — e.g. `jmos0011@student.monash.edu` → `jmos0011`.
+    - **Staff/postdoc:** check the username you use to log into Monash Windows systems or Monash VPN (`MONASH\username`). If unsure, contact Monash IT.
 
-    Note: M3 usernames are assigned separately and may differ from your authcate ID (e.g. Dana's M3 username is `danak`, Kavi's is `kkatuwan`). Always use your **Monash authcate ID** for S Drive — not your M3 username.
+    **Adding members to GroupAdmin:** use email address — you do not need to know someone's authcate ID to add them. The authcate ID is only needed by the person themselves when mounting.
 
 ---
 

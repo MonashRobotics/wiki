@@ -82,6 +82,34 @@ echo $MYSOFTWARE    # your software/install dir
 !!! tip
     `/software` quota is **shared across the whole project**. Keep conda environments lean and remove unused ones.
 
+!!! tip "Containers reduce inode and storage footprint (partial solution)"
+    A Singularity `.sif` file packages your entire software stack as **one file** — a conda environment that would consume 50,000 inodes becomes a single file instead.
+
+    ```bash
+    module load singularity
+    singularity pull pytorch.sif docker://pytorch/pytorch:2.1.0-cuda11.7-cudnn8-runtime
+    singularity exec pytorch.sif python3 train.py
+    ```
+
+    **Limitation:** containers are read-only by default — `pip install` and `pip install -e .` need a workaround.
+
+    *Option 1 — bind mount a writable directory (simpler):*
+    ```bash
+    mkdir -p $MYSOFTWARE/pip_extra
+    singularity exec \
+      --bind $MYSOFTWARE/pip_extra:/pip_extra \
+      pytorch.sif pip install --target=/pip_extra my_package
+    export PYTHONPATH=/pip_extra:$PYTHONPATH
+    ```
+
+    *Option 2 — overlay image (changes persist, still just 2 files):*
+    ```bash
+    singularity overlay create --size 2048 overlay.img
+    singularity exec --overlay overlay.img pytorch.sif pip install my_package
+    ```
+
+    This is a **mitigating solution**, not a complete fix. Best suited for students with a stable, known software stack for a project or semester.
+
 ### Shared datasets
 
 All project members share a common directory — use it to avoid duplicating large datasets:
@@ -123,12 +151,20 @@ module list             # show currently loaded modules
 
 ## Submitting Jobs (SLURM)
 
-| Partition | Use | Max walltime |
-|-----------|-----|-------------|
-| `work` | Standard CPU | 24 hrs |
-| `gpu` | AMD MI250X GPU (ROCm) | 24 hrs |
-| `debug` | Quick tests | 1 hr |
-| `long` | Long CPU jobs | 96 hrs |
+!!! warning "CPU and GPU use different SLURM accounts"
+    CPU jobs: `--account=pawsey1339`
+    GPU jobs: `--account=pawsey1339-gpu`
+    Using the wrong account gives "Invalid account or account/partition combination" error.
+
+| Partition | Account | Use | Max walltime |
+|-----------|---------|-----|-------------|
+| `work` | `pawsey1339` | Standard CPU | 24 hrs |
+| `debug` | `pawsey1339` | Quick CPU tests | 1 hr |
+| `long` | `pawsey1339` | Long CPU jobs | 96 hrs |
+| `highmem` | `pawsey1339` | High-memory CPU | 96 hrs |
+| `gpu` | `pawsey1339-gpu` | AMD MI250X GPU (ROCm) | 24 hrs |
+| `gpu-dev` | `pawsey1339-gpu` | GPU testing/interactive | 4 hrs |
+| `gpu-highmem` | `pawsey1339-gpu` | High-memory GPU | 48 hrs |
 
 ### CPU job
 
@@ -153,12 +189,10 @@ python train.py
 ```bash
 #!/bin/bash
 #SBATCH --job-name=gpu_job
-#SBATCH --account=pawsey1339
+#SBATCH --account=pawsey1339-gpu
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=32G
 #SBATCH --time=04:00:00
 #SBATCH --output=%x-%j.out
 
@@ -166,6 +200,59 @@ module load rocm
 cd $MYSCRATCH
 python train.py
 ```
+
+!!! warning "Do not set `--cpus-per-task` or `--mem` for GPU jobs"
+    Setonix auto-assigns both (8 CPUs + 29,440 MB RAM per GPU). Specifying them explicitly causes a `cli_filter` error and the job is rejected.
+
+!!! tip "NVMe local storage"
+    GPU nodes have 3,575 GB NVMe per node accessible at `/tmp` and `/var/tmp`. Default allocation is 128 GiB per job. To request more, add `tmp:<value>G` to `--gres`:
+    ```
+    #SBATCH --gres=gpu:1,tmp:512G
+    ```
+    **Important:** migrate any results from `/tmp` before the job completes — NVMe is wiped after the job finishes.
+
+### Loading PyTorch / ML frameworks
+
+```bash
+module avail pytorch           # find pytorch module
+module load pytorch/2.7.1-rocm6.3.3   # as of 2026-05-20
+
+# Verify the GPU is visible
+python3 -c "import torch; print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0))"
+# Expected output: True / AMD Instinct MI250X
+```
+
+Other GPU-enabled modules use the `amd-gfx90a` suffix (GROMACS, LAMMPS, NAMD, etc.):
+
+```bash
+module avail gfx90a
+```
+
+For ROCm directly (e.g. when using your own PyTorch install):
+
+```bash
+module avail rocm     # as of 2026-05-20: rocm/6.3.3
+module load rocm
+```
+
+### Interactive GPU session
+
+Use `gpu-dev` for testing — shorter queue, 4h max:
+
+```bash
+srun --account=pawsey1339-gpu --partition=gpu-dev --nodes=1 --gres=gpu:1 --time=00:30:00 --pty bash
+```
+
+Once on the node, verify the GPU:
+
+```bash
+rocm-smi
+module load pytorch/2.7.1-rocm6.3.3
+python3 -c "import torch; print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0))"
+# Expected: True / AMD Instinct MI250X
+```
+
+![Pawsey GPU and PyTorch verified](../../images/hpc/pawsey_gpu_pytorch_verified_2026-05-20.jpg)
 
 ### Essential SLURM commands
 
@@ -196,12 +283,15 @@ SU usage is also visible in the [Origin portal](https://portal.pawsey.org.au/ori
 !!! note
     SUs are allocated quarterly and do **not** carry over. Jobs can still run after the budget is exhausted but at lower priority.
 
+**GPU SU rate:** Each MI250X GCD (= 1 SLURM GPU, 64 GB HBM) costs **64 SU/hour**. A full node (8 GCDs) costs 512 SU/hour. Our 500,000 GPU SU allocation is equivalent to ~7,800 single-GPU hours.
+
 ---
 
 ## Useful Links
 
 - [Getting Started](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925850/Getting+Started+with+Supercomputing)
 - [Pawsey Filesystems](https://pawsey.atlassian.net/wiki/spaces/US/pages/51925876/Pawsey+Filesystems+and+their+Use)
+- [Setonix GPU Partition Quick Start](https://pawsey.atlassian.net/wiki/spaces/US/pages/51928618/Setonix+GPU+Partition+Quick+Start) — account naming, NVMe, SU rates, supported apps
 - [GPU Jobs on Setonix](https://pawsey.atlassian.net/wiki/spaces/US/pages/51929056)
 - [Acacia Object Storage](https://pawsey.atlassian.net/wiki/spaces/US/pages/51924576/Pawsey+Object+Storage+Acacia)
 - [System Status](https://status.pawsey.org.au)

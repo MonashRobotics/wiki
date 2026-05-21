@@ -110,6 +110,48 @@ quota -s
 !!! warning
     `/scratch` is purged after **100 days without access**. Move important results to `massdata/pg06` before they expire. Check expiry with `nci-file-expiry`.
 
+!!! warning "Inode (file count) quota"
+    `/scratch/pg06` has a project-wide limit of **202,000 files** shared across all members. Conda environments are the main culprit — a single PyTorch env can contain 50,000+ files.
+
+    Check usage:
+    ```bash
+    lquota   # project-wide inode + storage usage
+    ```
+
+    Clean up unused environments:
+    ```bash
+    conda env list
+    conda env remove -n <env_name>
+    ```
+
+!!! tip "Containers reduce inode footprint (partial solution)"
+    A Singularity `.sif` file packages your entire software stack as **one file**, eliminating the conda inode problem.
+
+    ```bash
+    module load singularity
+    singularity pull pytorch.sif docker://pytorch/pytorch:2.1.0-cuda12.1-cudnn8-runtime
+    singularity exec --nv pytorch.sif python3 train.py
+    ```
+
+    **Limitation:** containers are read-only — `pip install` and `pip install -e .` need a workaround.
+
+    *Bind mount a writable directory:*
+    ```bash
+    mkdir -p /scratch/pg06/$USER/pip_extra
+    singularity exec \
+      --bind /scratch/pg06/$USER/pip_extra:/pip_extra \
+      pytorch.sif pip install --target=/pip_extra my_package
+    export PYTHONPATH=/pip_extra:$PYTHONPATH
+    ```
+
+    *Or use an overlay image (changes persist, still just 2 files total):*
+    ```bash
+    singularity overlay create --size 2048 overlay.img
+    singularity exec --overlay overlay.img pytorch.sif pip install my_package
+    ```
+
+    This is a **mitigating solution**, not a complete fix. Best suited for students with a stable software stack.
+
 ---
 
 ## Folder Structure

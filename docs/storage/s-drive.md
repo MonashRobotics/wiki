@@ -16,7 +16,7 @@ The lab S Drive is persistent shared storage hosted by Monash eSolutions. Unlike
 
 ## Members
 
-**Access group:** Robotics-M3 | 33 members | *Last updated: 2026-05-03*
+**Access group:** Robotics-M3 | 35 members | *Last updated: 2026-05-21*
 
 | Name | Role |
 |---|---|
@@ -52,13 +52,24 @@ The lab S Drive is persistent shared storage hosted by Monash eSolutions. Unlike
 | Tavishi Saxena | FYP Student |
 | Tianyi Xiao | FYP Student |
 | Vedansh Malhan | FYP Student |
+| Vedansh Malhan | FYP Student |
 | William Ngo | FYP Student |
+| Zhuomin Zhou | Research Student |
+| Long Chan | FYP Student |
 
 ---
 
 ## Getting Access
 
 Email Lingheng (`lingheng.meng1@monash.edu`) with your Monash authcate ID or Monash email address. He will add you as a Group Member. Allow up to 3 hours for permissions to propagate.
+
+!!! tip "Finding your Monash authcate ID"
+    The authcate ID is what you use to log into S Drive, GroupAdmin, and MoVE. It is **not necessarily the same as your M3 username**.
+
+    - **Students:** your authcate ID is the prefix before `@student.monash.edu` in your Monash email — e.g. `jmos0011@student.monash.edu` → authcate ID is `jmos0011`.
+    - **Staff/postdoc:** your email uses a display name format (e.g. `Lingheng.Meng1@monash.edu`) which is different from your authcate ID. Find it by logging into [my.monash.edu](https://my.monash.edu) → your profile.
+
+    Note: M3 usernames are assigned separately and may differ from your authcate ID (e.g. Dana's M3 username is `danak`, Kavi's is `kkatuwan`). Always use your **Monash authcate ID** for S Drive — not your M3 username.
 
 ---
 

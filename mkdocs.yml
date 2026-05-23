@@ -61,6 +61,7 @@ nav:
   - Contributing: contributing.md
   - Onboarding:
     - Getting Started: onboarding/index.md
+    - Lab Induction: onboarding/lab-induction.md
     - New PhD Student Checklist: onboarding/phd.md
     - HPC Access: onboarding/hpc-access.md
   - HPC:

@@ -124,66 +124,9 @@ quota -s
     conda env remove -n <env_name>
     ```
 
-## Strategies to Reduce Inode Usage
+## Reducing File Count
 
-### 1. Use containers instead of conda environments
-
-A Singularity `.sif` image is **1 file** regardless of how many packages are inside, vs. 30,000–80,000 files for a typical PyTorch conda environment.
-
-```bash
-module load singularity
-singularity pull pytorch.sif docker://pytorch/pytorch:2.1.0-cuda12.1-cudnn8-runtime
-singularity exec --nv pytorch.sif python3 train.py
-```
-
-**Containers are read-only** — workarounds for extra packages:
-
-*Bind mount a writable directory for pip installs:*
-```bash
-mkdir -p /scratch/pg06/$USER/pip_extra
-singularity exec \
-  --bind /scratch/pg06/$USER/pip_extra:/pip_extra \
-  pytorch.sif pip install --target=/pip_extra my_package
-export PYTHONPATH=/pip_extra:$PYTHONPATH
-```
-
-*Or use an overlay image (changes persist, still only 2 files total):*
-```bash
-singularity overlay create --size 2048 overlay.img
-singularity exec --overlay overlay.img pytorch.sif pip install my_package
-```
-
-**Editable repos (`pip install -e .`):** bind-mount your code directory instead — no install needed:
-```bash
-singularity exec --nv \
-  --bind /scratch/pg06/$USER/myrepo:/myrepo \
-  pytorch.sif python /myrepo/train.py
-```
-
-### 2. Share environments with teammates
-
-If several people need the same packages, one shared `.sif` in `/scratch/pg06/shared/` costs 1 inode instead of N. Coordinate with your project group before pulling your own copy.
-
-### 3. Datasets with many small files — zip and extract to RAM
-
-Storing datasets as individual files (images, CSVs) creates a large inode count. Instead, store the archive and extract to a RAM disk at job start:
-
-```bash
-# In your PBS job script:
-tar -xzf /scratch/pg06/$USER/dataset.tar.gz -C /dev/shm/
-# or extract to fast job-local NVMe storage:
-tar -xzf /scratch/pg06/$USER/dataset.tar.gz -C $PBS_JOBFS/
-```
-
-`/dev/shm` is a RAM disk — very fast, zero inode impact on the project quota, but limited by node RAM. `$PBS_JOBFS` uses NVMe local storage (request with `#PBS -l jobfs=50gb`).
-
-### 4. PyTorch DataLoader
-
-Use `num_workers > 0` with `pin_memory=True`. Workers preload batches in parallel into pinned memory, reducing reliance on OS file caching of many small files:
-
-```python
-DataLoader(dataset, num_workers=4, pin_memory=True)
-```
+See [Managing File Count Limits](file-count.md) for strategies that apply across all HPC systems: containers, shared environments, zip+RAM extraction, DataLoader settings, and cache cleanup.
 
 ---
 

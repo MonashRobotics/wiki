@@ -69,6 +69,7 @@ nav:
     - M3 Admin Guide: hpc/m3-admin.md
     - Pawsey Setonix: hpc/pawsey.md
     - NCI Gadi: hpc/nci.md
+    - Managing File Count Limits: hpc/file-count.md
   - Storage:
     - S Drive: storage/s-drive.md
   - Meetings: meetings.md

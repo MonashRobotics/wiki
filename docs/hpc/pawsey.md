@@ -80,35 +80,7 @@ echo $MYSOFTWARE    # your software/install dir
     ```
 
 !!! tip
-    `/software` quota is **shared across the whole project**. Keep conda environments lean and remove unused ones.
-
-!!! tip "Containers reduce inode and storage footprint (partial solution)"
-    A Singularity `.sif` file packages your entire software stack as **one file** — a conda environment that would consume 50,000 inodes becomes a single file instead.
-
-    ```bash
-    module load singularity
-    singularity pull pytorch.sif docker://pytorch/pytorch:2.1.0-cuda11.7-cudnn8-runtime
-    singularity exec pytorch.sif python3 train.py
-    ```
-
-    **Limitation:** containers are read-only by default — `pip install` and `pip install -e .` need a workaround.
-
-    *Option 1 — bind mount a writable directory (simpler):*
-    ```bash
-    mkdir -p $MYSOFTWARE/pip_extra
-    singularity exec \
-      --bind $MYSOFTWARE/pip_extra:/pip_extra \
-      pytorch.sif pip install --target=/pip_extra my_package
-    export PYTHONPATH=/pip_extra:$PYTHONPATH
-    ```
-
-    *Option 2 — overlay image (changes persist, still just 2 files):*
-    ```bash
-    singularity overlay create --size 2048 overlay.img
-    singularity exec --overlay overlay.img pytorch.sif pip install my_package
-    ```
-
-    This is a **mitigating solution**, not a complete fix. Best suited for students with a stable, known software stack for a project or semester.
+    `/software` quota is **shared across the whole project**. Keep conda environments lean and remove unused ones. See [Managing File Count Limits](file-count.md) for strategies: containers, shared environments, zip+RAM extraction, and more.
 
 ### Shared datasets
 

@@ -18,10 +18,15 @@ All students and visitors must complete a lab induction before accessing Monash 
 
 1. Your supervisor arranges an induction time and sends you a calendar invite
 2. Meet at the main entrance (between Eng 35 and 36) at the scheduled time
-3. Complete the induction walkthrough with your supervisor or their delegate
-4. Fill in and sign the **lab induction checklist form** (`robotics_lab_induction_checklist_V2.docx`)
-5. The inductor signs the form, scans it, and sends it to **Dana Kulić**
-6. Dana processes the form and arranges your card access — allow a few days
+3. Complete the induction walkthrough with your supervisor or their delegate (~15–30 min)
+4. Fill in and sign the **lab induction checklist form** (`robotics_lab_induction_checklist_V2.docx`) — bring a pen
+5. The inductor signs the form and scans it
+6. Upload the scanned form to the shared Google folder: [OHS Safety Training Forms](<GOOGLE_FOLDER_URL>)
+7. Email **Dana Kulić** (dana.kulic@monash.edu) with:
+    - Student name(s)
+    - Student ID(s)
+    - Confirmation that the signed form has been uploaded
+8. Dana asks ECSE admin to grant card access — allow a few days
 
 ### Monash OHS Training Needs Analysis (TNA)
 

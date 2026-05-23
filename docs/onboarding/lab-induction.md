@@ -21,7 +21,7 @@ All students and visitors must complete a lab induction before accessing Monash 
 3. Complete the induction walkthrough with your supervisor or their delegate (~15–30 min)
 4. Fill in and sign the **lab induction checklist form** (`robotics_lab_induction_checklist_V2.docx`) — bring a pen
 5. The inductor signs the form and scans it
-6. Upload the scanned form to the shared Google folder: [OHS Safety Training Forms](<GOOGLE_FOLDER_URL>)
+6. Upload the scanned form to the shared Google folder: [OHS Safety Training Forms](https://drive.google.com/drive/folders/1K2Xp5cIFaw7BdGk6v_8Fww0quwwrfP_9)
 7. Email **Dana Kulić** (dana.kulic@monash.edu) with:
     - Student name(s)
     - Student ID(s)

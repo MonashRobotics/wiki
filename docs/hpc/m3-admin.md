@@ -20,15 +20,22 @@ Run this immediately after creating each new project folder:
 # 1. Create the project folder (supervisor does this, not the student)
 mkdir /fs04/mh42/{project_folder}
 
-# 2. Set default ACLs for all active leaders
+# 2. Set group write so members can create their stack folders inside
+chmod g+w /fs04/mh42/{project_folder}
+
+# 3. Set default ACLs for all active leaders
 #    danak must always be included — she is the permanent PI
 setfacl -d -m u:danak:rwx /fs04/mh42/{project_folder}/
 setfacl -d -m u:lmen0023:rwx /fs04/mh42/{project_folder}/
 setfacl -d -m u:kkatuwan:rwx /fs04/mh42/{project_folder}/
 
-# 3. Verify the ACL was set
+# 4. Verify permissions and ACL
+ls -la /fs04/mh42/ | grep {project_folder}   # should show drwxrwsr-x
 getfacl /fs04/mh42/{project_folder}/
 ```
+
+!!! warning "Don't skip step 2"
+    Without group write on the project folder, members will get `Permission denied` when they try to create their `stack_{name}/` folder. The setfacl default ACL (step 3) only controls access to files *inside* existing subdirectories — it does not grant write to the project folder itself.
 
 **What default ACL does:** The `-d` flag makes the ACL a *template*. Every file and subdirectory a student creates inside automatically inherits an entry giving the listed leaders full access — no student cooperation required, even after they graduate.
 

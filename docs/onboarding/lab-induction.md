@@ -46,25 +46,10 @@ Some areas of the lab require an additional induction beyond the general lab ind
 
 ## Equipment Inductions
 
-Certain equipment requires a separate induction before first use. Your supervisor will arrange this.
+Certain equipment requires a separate induction before first use. Your supervisor will arrange this and walk you through the relevant Safe Work Instruction (SWI) for each piece of equipment.
 
-### Meta Quest 3 VR Headset
-
-Covered by a Safe Work Instruction (SWI) approved by Dana Kulić. Key requirements:
-
-- Complete a **health screening questionnaire** before first use
-- Sessions capped at **30 minutes continuous** for new users; minimum 15-minute break between sessions
-- Set up the Guardian boundary system with a **30–60 cm buffer** from walls/obstacles before each session
-- A second person (operator or supervisor) must be present for user studies and real robot operations
-- On-campus use only for user studies and real robot operation; off-campus permitted for simulation and development
-
-### Unitree G1 Humanoid
-
-Covered under the general lab induction. Your supervisor will demonstrate safe operation before you work with the robot independently.
-
-### Franka Panda Robot Arm
-
-Your supervisor will demonstrate safe operation before you work with the robot independently.
+!!! warning
+    Do not use any lab equipment before completing the equipment-specific induction with your supervisor. Always follow the official SWI — do not rely on instructions from other students or informal summaries.
 
 ---
 
